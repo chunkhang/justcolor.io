@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from markupsafe import escape
 from webcolors import normalize_hex, name_to_hex
 import re
@@ -16,7 +16,7 @@ def home_page():
 
 @app.errorhandler(404)
 def not_found_page(error):
-    return render_template('page_not_found.html'), 404
+    return redirect(url_for('home_page'))
 
 
 @app.route('/<string:query>')
