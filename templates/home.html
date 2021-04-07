@@ -1,3 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
+
+{% block head %}
+  <style>
+    #color {
+      background: {{ color }};
+      height: 100vh;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h1>Just Color</h1>
+  <p>Supported formats:</p>
+  <a href="/000">justcolor.io/000</a>
+  <a href="/34b044">justcolor.io/34b044</a>
+  <a href="/blue">justcolor.io/blue</a>
+{% endblock %}
