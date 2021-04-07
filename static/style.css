@@ -1,3 +1,38 @@
 html {
   font-size: 16px;
+  font-family: monospace;
+}
+
+main {
+  padding: 4rem;
+}
+
+header, section {
+  margin-bottom: 4rem;
+}
+
+ul {
+  padding-left: 1rem;
+  list-style-position: inside;
+}
+
+li {
+  margin-bottom: 1rem;
+}
+
+a:link {
+  color: black;
+}
+
+a:active {
+  color: black;
+  opacity: 0.5;
+}
+
+a:visited {
+  color: black;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

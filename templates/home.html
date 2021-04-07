@@ -2,19 +2,30 @@
 
 {% block title %}Home{% endblock %}
 
-{% block head %}
-  <style>
-    #color {
-      background: {{ color }};
-      height: 100vh;
-    }
-  </style>
-{% endblock %}
-
 {% block content %}
-  <h1>Just Color</h1>
-  <p>Supported formats:</p>
-  <a href="/000">justcolor.io/000</a>
-  <a href="/34b044">justcolor.io/34b044</a>
-  <a href="/blue">justcolor.io/blue</a>
+  <main>
+    <header>
+      <h1 class="uppercase">Just Color</h1>
+      <h3>Just the color, and nothing else</h3>
+    </header>
+    <section>
+      <p class="uppercase">Hex</p>
+      <ul>
+        <li>
+          <a href="/000">justcolor.io/000</a>
+        </li>
+        <li>
+          <a href="/34b044">justcolor.io/34b044</a>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <p class="uppercase">Name</p>
+      <ul>
+        <li>
+          <a href="/blue">justcolor.io/blue</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 {% endblock %}

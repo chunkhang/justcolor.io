@@ -4,7 +4,7 @@
 
 {% block head %}
   <style>
-    #color {
+    main {
       background: {{ color }};
       height: 100vh;
     }
@@ -12,5 +12,5 @@
 {% endblock %}
 
 {% block content %}
-  <div id="color" title="{{ color }}"></div>
+  <main title="{{ color }}"></main>
 {% endblock %}
