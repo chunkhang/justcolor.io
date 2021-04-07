@@ -3,6 +3,16 @@
 {% block title %}Color Not Found{% endblock %}
 
 {% block content %}
-  <p>Color not found: {{ query }}</p>
-  <a href="/">Back to home</a>
+  <main>
+    {% include 'header.html' %}
+    <section>
+      <p>
+        The color you are looking for is either unrecognizable or invalid.
+      </p>
+      <p>
+        <span>Try something else, or</span>
+        <span><a href="/">go back home</a>.</span>
+      </p>
+    </section>
+  </main>
 {% endblock %}

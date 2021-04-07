@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, url_for
-from markupsafe import escape
 from webcolors import normalize_hex, name_to_hex
 import re
 
@@ -34,6 +33,6 @@ def color_page(query):
             pass
 
     if not color:
-        return render_template('color_not_found.html', query=escape(query))
+        return render_template('color_not_found.html')
 
     return render_template('color.html', color=color)

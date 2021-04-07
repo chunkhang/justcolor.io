@@ -4,10 +4,11 @@
 
 {% block content %}
   <main>
-    <header>
-      <h1 class="uppercase">Just Color</h1>
-      <h3>Just the color, and nothing else</h3>
-    </header>
+    {% include 'header.html' %}
+    <section>
+      <p>Add a query behind the URL to look for a specific color.</p>
+      <p>Below are examples for all supported formats.</p>
+    </section>
     <section>
       <p class="uppercase">Hex</p>
       <ul>

@@ -4,7 +4,7 @@ html {
 }
 
 main {
-  padding: 4rem;
+  padding: 5rem;
 }
 
 header, section {
@@ -17,7 +17,7 @@ ul {
 }
 
 li {
-  margin-bottom: 1rem;
+  padding: 0.5rem 0;
 }
 
 a:link {
