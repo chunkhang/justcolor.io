@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>{{ color }}</title>
+{% extends 'base.html' %}
+
+{% block title %}{{ color }}{% endblock %}
+
+{% block head %}
   <style>
-    body {
-      background: {{color}};
+    #color {
+      background: {{ color }};
+      height: 100vh;
     }
   </style>
-</head>
-<body>
-</body>
-</html>
+{% endblock %}
+
+{% block content %}
+  <div id="color" title="{{ color }}"></div>
+{% endblock %}

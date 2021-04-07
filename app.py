@@ -11,12 +11,12 @@ NAME_PATTERN = r'^[a-zA-Z]{1,20}$'
 
 @app.route('/')
 def home_page():
-    return 'Hello, World!'
+    return render_template('home.html')
 
 
 @app.errorhandler(404)
 def not_found_page(error):
-    return render_template('not_found.html'), 404
+    return render_template('page_not_found.html'), 404
 
 
 @app.route('/<string:query>')
@@ -34,6 +34,6 @@ def color_page(query):
             pass
 
     if not color:
-        return render_template('error.html', query=escape(query))
+        return render_template('color_not_found.html', query=escape(query))
 
     return render_template('color.html', color=color)
