@@ -15,9 +15,7 @@ else.
 - [Supervisor][supervisor]
 - [Just][just]
 
-## Development
-
-### Installation
+## Installation
 
 Run `just bootstrap` to:
 
@@ -25,10 +23,17 @@ Run `just bootstrap` to:
 - Install project dependencies
 - Create relevant project folders
 
+## Development
+
 ### Running
 
-Run `just start` to start the development server. Hot reload is handled
-by [Flask][flask]. Stop the server any time with the usual `Ctrl-C`.
+Run `just start` to start the development server. Hot reload is
+handled by [Flask][flask]. The application can be accessed via
+[localhost:5000][localhost:5000].
+
+### Stopping
+
+Stop the development server any time with the usual `Ctrl-C`.
 
 ## Production
 
@@ -36,7 +41,7 @@ by [Flask][flask]. Stop the server any time with the usual `Ctrl-C`.
 
 Run `just up` to start the production server. [Gunicorn][gunicorn] and
 [NGINX][nginx] are both handled by [Supervisor][supervisor], which runs
-as a daemon.
+as a daemon. The application can be accessed via [localhost][localhost].
 
 ### Checking
 
@@ -51,6 +56,8 @@ changes to the application code.
 
 Run `just down` to stop the production server.
 
+[localhost]: http://localhost
+[localhost:5000]: http://localhost:5000
 [colorhexa]: https://www.colorhexa.com/
 [flask]: https://flask.palletsprojects.com/
 [gunicorn]: https://gunicorn.org/
