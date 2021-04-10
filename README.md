@@ -12,17 +12,33 @@ color, and nothing else.
 ### Dependencies
 
 - Python 3
-- [Just](https://github.com/casey/just)
 - [Pipenv](https://pipenv.pypa.io/en/latest/)
+- [NGINX](https://nginx.org/en/)
+- [Supervisor](http://supervisord.org/)
+- [Just](https://github.com/casey/just)
 
 ### Installation
 
 ```
-just install
+just bootstrap
 ```
 
 ### Running
 
 ```
 just start
+```
+
+## Production
+
+### Running
+
+```
+just up
+```
+
+### Stopping
+
+```
+just down
 ```
