@@ -4,10 +4,17 @@ alias help := list
 list:
 	@just --list
 
-# Bootstrap dependencies
+# Bootstrap project
 bootstrap:
-	@pipenv install
-	@mkdir -p log
+	#!/usr/bin/env bash
+	set -xeuo pipefail
+	python --version
+	pipenv --version
+	nginx -v
+	supervisord --version
+	just --version
+	pipenv install
+	mkdir -p log
 
 # Start development server
 start:
