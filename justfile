@@ -6,10 +6,8 @@ list:
 
 # Install dependencies
 install:
-	pip3 install --upgrade pip setuptools wheel
-	pip3 install --requirement requirements.txt
-	pip3 install --requirement requirements.dev.txt
+	@pipenv install
 
 # Start development server
 start:
-	@FLASK_ENV=development flask run
+	@FLASK_ENV=development pipenv run flask run
