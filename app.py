@@ -4,27 +4,27 @@ import re
 
 app = Flask(__name__)
 
-HEX_PATTERN = r'^([0-9a-fA-F]{3}){1,2}$'
-NAME_PATTERN = r'^[a-zA-Z]{1,20}$'
+HEX_PATTERN = r"^([0-9a-fA-F]{3}){1,2}$"
+NAME_PATTERN = r"^[a-zA-Z]{1,20}$"
 
 
-@app.route('/')
+@app.route("/")
 def home_page():
-    return render_template('home.html')
+    return render_template("home.html")
 
 
 @app.errorhandler(404)
 def not_found_page(error):
-    return redirect(url_for('home_page'))
+    return redirect(url_for("home_page"))
 
 
-@app.route('/<string:query>')
+@app.route("/<string:query>")
 def color_page(query):
     color = None
 
     # Hex (000, 000000)
     if re.search(HEX_PATTERN, query):
-        color = normalize_hex(f'#{query}')
+        color = normalize_hex(f"#{query}")
     # Name (black)
     if re.search(NAME_PATTERN, query):
         try:
@@ -33,6 +33,6 @@ def color_page(query):
             pass
 
     if not color:
-        return render_template('color_not_found.html')
+        return render_template("color_not_found.html")
 
-    return render_template('color.html', color=color)
+    return render_template("color.html", color=color)
