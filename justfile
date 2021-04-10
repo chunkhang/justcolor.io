@@ -35,3 +35,7 @@ restart:
 # Stop production server
 down:
 	@pkill -F supervisord.pid
+
+# Deploy to live server
+deploy:
+	@git push live master
