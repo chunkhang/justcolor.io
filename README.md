@@ -13,6 +13,7 @@ color, and nothing else.
 
 - Python 3
 - [Just](https://github.com/casey/just)
+- [Pipenv](https://pipenv.pypa.io/en/latest/)
 
 ### Installation
 
