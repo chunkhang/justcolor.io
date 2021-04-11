@@ -25,17 +25,12 @@ li {
   padding: 0.5rem 0;
 }
 
-a:link {
+a:link, a:active, a:visited {
   color: black;
 }
 
 a:active {
-  color: black;
   opacity: 0.5;
-}
-
-a:visited {
-  color: black;
 }
 
 .uppercase {
