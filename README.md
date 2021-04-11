@@ -58,11 +58,66 @@ Run `just down` to stop the production server.
 
 ## Deployment
 
-For now, it is assumed that the deployment is done on an [EC2][ec2]
-instance running [Amazon Linux 2][amazon-linux-2]. The Git remote `live`
-should point to the EC2 instance via SSH.
+### Preparing
 
-Run `just deploy` to deploy changes to the live server.
+For now, it is assumed that the deployment is done on an [EC2][ec2]
+instance running [Amazon Linux 2][amazon-linux-2]. Install all system
+dependecies listed above.
+
+Assume the SSH alias `justcolor.io` was configured correctly in
+`~/.ssh/config`.
+
+```
+Host justcolor.io
+  HostName <elastic ip address>
+  IdentityFile <pem file>
+  User ec2-user
+```
+
+Remotely, set up two directories for Git: bare and working.
+
+```
+ssh justcolor.io
+mkdir -p repo/justcolor.io.git repo/justcolor.io
+cd repo/justcolor.io.git
+git init --bare
+```
+
+For the bare repository `justcolor.io.git`, the `hooks/post-update`
+executable file should look something like this:
+
+```
+#!/bin/bash -l
+
+git --work-tree ~/repo/justcolor.io --git-dir ~/repo/justcolor.io.git checkout --force
+cd ~/repo/justcolor.io
+just bootstrap
+just restart
+```
+
+Locally, the Git remote `live` should point to the EC2 instance via SSH.
+
+```
+git remote add live ssh://justcolor.io/home/ec2-user/repo/justcolor.io.git
+```
+
+Basically, when we push to `live` remote, the `post-update` hook will
+update the working directory `justcolor.io` with the latest code from
+`master` branch. After that, the project is bootstrapped before the
+production server is restarted.
+
+### Deploying
+
+For the first deployment, manually start the production server.
+
+```
+ssh justcolor.io
+cd repo/justcolor.io
+just up
+```
+
+For subsequent deployments, assuming the EC2 instance never went down,
+run `just deploy` to deploy new changes to the live server.
 
 [amazon-linux-2]: https://aws.amazon.com/amazon-linux-2/
 [colorhexa]: https://www.colorhexa.com/
