@@ -13,9 +13,9 @@ def home_page():
     return render_template("home.html")
 
 
-@app.errorhandler(404)
-def not_found_page(error):
-    return redirect(url_for("home_page"))
+@app.route("/robots.txt")
+def robots_page():
+    return app.send_static_file("robots.txt")
 
 
 @app.route("/<string:query>")
@@ -36,3 +36,8 @@ def color_page(query):
         return render_template("color_not_found.html")
 
     return render_template("color.html", color=color)
+
+
+@app.errorhandler(404)
+def not_found_page(error):
+    return redirect(url_for("home_page"))
