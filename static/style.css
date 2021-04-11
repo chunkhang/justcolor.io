@@ -12,7 +12,7 @@ main {
   padding: 5rem;
 }
 
-header, section {
+header, section:not(:last-child) {
   margin-bottom: 4rem;
 }
 
