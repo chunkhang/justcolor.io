@@ -9,7 +9,7 @@ else.
 
 ## Dependencies
 
-- [Python][python]
+- [Python 3.9][python]
 - [Pipenv][pipenv]
 - [NGINX][nginx]
 - [Supervisor][supervisor]

@@ -13,6 +13,7 @@ bootstrap:
 	nginx -v
 	supervisord --version
 	just --version
+	pipenv check
 	pipenv install
 	mkdir -p log
 
