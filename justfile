@@ -1,3 +1,7 @@
+SUPERVISOR_CONFIG := "supervisord.conf"
+SUPERVISORD := "supervisord --configuration " + SUPERVISOR_CONFIG
+SUPERVISORCTL := "supervisorctl --configuration " + SUPERVISOR_CONFIG
+
 alias help := list
 
 # List available recipes
@@ -23,19 +27,22 @@ start:
 
 # Start production server
 up:
-	@supervisord --configuration supervisord.conf
+	@{{SUPERVISORD}}
 
 # Check production server status
 status:
-	@supervisorctl --configuration supervisord.conf status
+	@{{SUPERVISORCTL}} status
 
 # Restart production server
 restart:
-	@supervisorctl --configuration supervisord.conf restart all
+	@{{SUPERVISORCTL}} restart all
 
 # Stop production server
 down:
-	@pkill -F supervisord.pid
+	#!/usr/bin/env bash
+	set -euo pipefail
+	PID=$({{SUPERVISORCTL}} pid)
+	kill "$PID"
 
 # Deploy to live server
 deploy:
