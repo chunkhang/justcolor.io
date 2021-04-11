@@ -29,7 +29,7 @@ Run `just bootstrap` to:
 
 Run `just start` to start the development server. Hot reload is
 handled by [Flask][flask]. The application can be accessed via
-[localhost:5000][localhost:5000].
+[localhost:5000][localhost-5000].
 
 ### Stopping
 
@@ -56,13 +56,23 @@ changes to the application code.
 
 Run `just down` to stop the production server.
 
-[localhost]: http://localhost
-[localhost:5000]: http://localhost:5000
+## Deployment
+
+For now, it is assumed that the deployment is done on an [EC2][ec2]
+instance running [Amazon Linux 2][amazon-linux-2]. The Git remote `live`
+should point to the EC2 instance via SSH.
+
+Run `just deploy` to deploy changes to the live server.
+
+[amazon-linux-2]: https://aws.amazon.com/amazon-linux-2/
 [colorhexa]: https://www.colorhexa.com/
+[ec2]: https://aws.amazon.com/ec2/
 [flask]: https://flask.palletsprojects.com/
 [gunicorn]: https://gunicorn.org/
 [just]: https://github.com/casey/just
 [justcolor]: https://justcolor.io
+[localhost-5000]: http://localhost:5000
+[localhost]: http://localhost
 [nginx]: https://gunicorn.org/
 [pipenv]: https://pipenv.pypa.io/en/latest/
 [python]: https://www.python.org/
