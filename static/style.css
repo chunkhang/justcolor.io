@@ -1,6 +1,11 @@
 html {
   font-size: 16px;
   font-family: monospace;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 main {
