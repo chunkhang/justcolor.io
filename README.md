@@ -156,7 +156,7 @@ http {
     ssl_certificate_key  /etc/letsencrypt/live/justcolor.io/privkey.pem;
 
     location / {
-      proxy_pass         http://127.0.0.1:8000/;
+      proxy_pass         http://127.0.0.1:5000/;
       proxy_redirect     off;
 
       proxy_set_header   Host                 $host;
