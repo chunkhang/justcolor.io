@@ -19,7 +19,6 @@ bootstrap:
 	just --version
 	pipenv check
 	pipenv install
-	mkdir -p log
 
 # Start development server
 start:

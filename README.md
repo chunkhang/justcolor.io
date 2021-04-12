@@ -20,7 +20,6 @@ Run `just bootstrap` to:
 
 - Verify that all system dependencies are present
 - Install project dependencies
-- Create relevant project folders
 
 ## Development
 
