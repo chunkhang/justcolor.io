@@ -14,7 +14,6 @@ bootstrap:
 	set -xeuo pipefail
 	python --version
 	pipenv --version
-	nginx -v
 	supervisord --version
 	just --version
 	pipenv check
