@@ -16,7 +16,6 @@ bootstrap:
 	pipenv --version
 	supervisord --version
 	just --version
-	pipenv check
 	pipenv install
 
 # Start development server
