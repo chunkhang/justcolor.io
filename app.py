@@ -1,13 +1,41 @@
+from base64 import b64encode
+import io
 import os
+import re
 
 from flask import Flask, render_template, redirect, url_for
-from webcolors import normalize_hex, name_to_hex
-import re
+from webcolors import normalize_hex, name_to_hex, hex_to_rgb
+import png
 
 app = Flask(__name__)
 
+APP_NAME = "Just Color"
+APP_SLOGAN = "Just the color, and nothing else"
+APP_BASE_URL = "justcolor.io"
+APP_FAVICON_COLOR = "#000"
+ICON_SIZE = 32
 HEX_PATTERN = r"^([0-9a-fA-F]{3}){1,2}$"
 NAME_PATTERN = r"^[a-zA-Z]{1,20}$"
+
+
+# Return Base64-encoded PNG for a simple color square
+# Pass in color in hex format
+def generate_icon(color: str) -> str:
+    rgb = tuple(hex_to_rgb(color))
+
+    rows = []
+    for row in range(ICON_SIZE):
+        row = []
+        for col in range(ICON_SIZE):
+            row.extend(rgb)
+        rows.append(tuple(row))
+
+    buffer = io.BytesIO()
+    writer = png.Writer(width=ICON_SIZE, height=ICON_SIZE, greyscale=False)
+    writer.write(buffer, rows)
+
+    icon = b64encode(buffer.getvalue()).decode("utf-8")
+    return f"data:image/png;base64,{icon}"
 
 
 # Fix caching for static files
@@ -30,9 +58,10 @@ def override_url_for():
 @app.context_processor
 def inject_template_globals():
     template_globals = {
-        "APP_NAME": "Just Color",
-        "APP_SLOGAN": "Just the color, and nothing else",
-        "APP_BASE_URL": "justcolor.io",
+        "APP_NAME": APP_NAME,
+        "APP_SLOGAN": APP_SLOGAN,
+        "APP_BASE_URL": APP_BASE_URL,
+        "APP_FAVICON": generate_icon(APP_FAVICON_COLOR),
     }
 
     return dict(**template_globals)
@@ -59,13 +88,13 @@ def color_page(query):
     if re.search(NAME_PATTERN, query):
         try:
             color = name_to_hex(query)
-        except:
+        except ValueError:
             pass
 
     if not color:
         return render_template("pages/color_not_found.html")
 
-    return render_template("pages/color.html", color=color)
+    return render_template("pages/color.html", color=color, icon=generate_icon(color))
 
 
 @app.errorhandler(404)
