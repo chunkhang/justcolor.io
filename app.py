@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect, url_for
 from webcolors import normalize_hex, name_to_hex
 import re
@@ -6,6 +8,21 @@ app = Flask(__name__)
 
 HEX_PATTERN = r"^([0-9a-fA-F]{3}){1,2}$"
 NAME_PATTERN = r"^[a-zA-Z]{1,20}$"
+
+
+# Fix caching for static files
+# https://gist.github.com/itsnauman/b3d386e4cecf97d59c94
+@app.context_processor
+def override_url_for():
+    def dated_url_for(endpoint, **values):
+        if endpoint == "static":
+            filename = values.get("filename", None)
+            if filename:
+                file_path = os.path.join(app.root_path, endpoint, filename)
+                values["q"] = int(os.stat(file_path).st_mtime)
+        return url_for(endpoint, **values)
+
+    return dict(url_for=dated_url_for)
 
 
 @app.route("/")
