@@ -4,15 +4,17 @@
 
 {% block content %}
   <main>
-    {% include 'layouts/header.html' %}
-    <section>
-      <p>
+    <div class="container">
+      {% include 'layouts/header.html' %}
+      <section>
+        <p>
         The color you are looking for is either unrecognizable or invalid.
-      </p>
-      <p>
+        </p>
+        <p>
         <span>Try something else, or</span>
         <span><a href="/">go back home</a>.</span>
-      </p>
-    </section>
+        </p>
+      </section>
+    </div>
   </main>
 {% endblock %}
