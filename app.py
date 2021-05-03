@@ -25,6 +25,19 @@ def override_url_for():
     return dict(url_for=dated_url_for)
 
 
+# Inject global variables in templates
+# https://stackoverflow.com/questions/43335931/global-variables-in-flask-templates
+@app.context_processor
+def inject_template_globals():
+    template_globals = {
+        "APP_NAME": "Just Color",
+        "APP_SLOGAN": "Just the color, and nothing else",
+        "APP_BASE_URL": "justcolor.io",
+    }
+
+    return dict(**template_globals)
+
+
 @app.route("/")
 def home_page():
     return render_template("home.html")
