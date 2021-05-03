@@ -7,6 +7,7 @@ name = "pypi"
 flask = "*"
 gunicorn = "*"
 webcolors = "*"
+pypng = "*"
 
 [dev-packages]
 flake8 = "*"
