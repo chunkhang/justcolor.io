@@ -40,7 +40,7 @@ def inject_template_globals():
 
 @app.route("/")
 def home_page():
-    return render_template("home.html")
+    return render_template("pages/home.html")
 
 
 @app.route("/robots.txt")
@@ -63,9 +63,9 @@ def color_page(query):
             pass
 
     if not color:
-        return render_template("color_not_found.html")
+        return render_template("pages/color_not_found.html")
 
-    return render_template("color.html", color=color)
+    return render_template("pages/color.html", color=color)
 
 
 @app.errorhandler(404)
