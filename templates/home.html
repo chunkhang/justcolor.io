@@ -4,29 +4,31 @@
 
 {% block content %}
   <main>
-    {% include 'header.html' %}
-    <section>
-      <p>Add a query to the URL to look for a specific color.</p>
-      <p>Below are examples for all supported formats.</p>
-    </section>
-    <section>
-      <p class="uppercase">Hex</p>
-      <ul>
-        <li>
-          <a href="/000">justcolor.io/000</a>
-        </li>
-        <li>
-          <a href="/34b044">justcolor.io/34b044</a>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <p class="uppercase">Name</p>
-      <ul>
-        <li>
-          <a href="/blue">justcolor.io/blue</a>
-        </li>
-      </ul>
-    </section>
+    <div class="container">
+      {% include 'header.html' %}
+      <section>
+        <p>Add a query to the URL to look for a specific color.</p>
+        <p>Below are examples for all supported formats.</p>
+      </section>
+      <section>
+        <p class="uppercase">Hex</p>
+        <ul>
+          <li>
+            <a href="/000">justcolor.io/000</a>
+          </li>
+          <li>
+            <a href="/34b044">justcolor.io/34b044</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <p class="uppercase">Name</p>
+        <ul>
+          <li>
+            <a href="/blue">justcolor.io/blue</a>
+          </li>
+        </ul>
+      </section>
+    </div>
   </main>
 {% endblock %}

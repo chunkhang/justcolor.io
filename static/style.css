@@ -8,8 +8,10 @@ html {
   box-sizing: inherit;
 }
 
-main {
-  padding: 5rem;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
 }
 
 header, section:not(:last-child) {
