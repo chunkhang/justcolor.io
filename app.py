@@ -1,13 +1,17 @@
 from base64 import b64encode
+from datetime import timedelta
 import io
 import os
 import re
 
 from flask import Flask, render_template, redirect, url_for
+from flask_minify import minify
 from webcolors import normalize_hex, name_to_hex, hex_to_rgb
 import png
 
 app = Flask(__name__)
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = timedelta(days=365)
+minify(app=app, html=True, js=True, cssless=True)
 
 APP_NAME = "Just Color"
 APP_SLOGAN = "Just the color, and nothing else"
