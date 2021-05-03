@@ -8,6 +8,7 @@ flask = "*"
 gunicorn = "*"
 webcolors = "*"
 pypng = "*"
+flask-minify = "*"
 
 [dev-packages]
 flake8 = "*"
