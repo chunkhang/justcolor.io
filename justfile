@@ -20,7 +20,7 @@ bootstrap:
 
 # Start development server
 start:
-	@FLASK_ENV=development pipenv run flask run
+	@FLASK_ENV=development pipenv run flask run --host 0.0.0.0
 
 # Start production server
 up:
