@@ -1,2 +1,4 @@
 __pycache__/
 *.log
+supervisord.log
+supervisord.pid
