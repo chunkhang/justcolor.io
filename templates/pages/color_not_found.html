@@ -1,10 +1,7 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %}Color Not Found{% endblock %}
-
-{% block head %}
-  <link rel="icon" type="image/png" href="{{ APP_FAVICON }}" />
-{% endblock %}
+{% set title = 'Color Not Found' %}
+{% set favicon = APP_FAVICON %}
 
 {% block content %}
   <main>

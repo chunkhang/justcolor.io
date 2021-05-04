@@ -1,9 +1,9 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %}{{ color }}{% endblock %}
+{% set title = color %}
+{% set favicon = icon %}
 
 {% block head %}
-  <link rel="icon" type="image/png" href="{{ icon }}" />
   <style>
     main {
       background: {{ color }};
