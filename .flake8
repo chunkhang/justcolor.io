@@ -1,5 +1,14 @@
 [flake8]
 
+extend-exclude =
+  .venv/
+
+application-import-names = app
+
 ignore = 
   # line too long
   E501
+  # unecessary variable assignment before return statement
+  R504
+  # missing newline between import groups
+  I201
