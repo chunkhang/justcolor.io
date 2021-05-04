@@ -18,6 +18,10 @@ bootstrap:
 	just --version
 	pipenv install --dev
 
+# Lint project
+lint:
+	@pipenv run flake8
+
 # Start development server
 start:
 	@FLASK_ENV=development pipenv run flask run --host 0.0.0.0
