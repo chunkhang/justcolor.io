@@ -1,7 +1,7 @@
 import os
 
-from app.main import create_app
 from app.config import DevelopmentConfig, ProductionConfig
+from app.main import create_app
 
 environment = os.environ.get("FLASK_ENV", "production")
 cfg = DevelopmentConfig if environment == "development" else ProductionConfig

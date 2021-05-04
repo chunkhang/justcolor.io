@@ -1,13 +1,13 @@
-from base64 import b64encode
 import io
 import os
 import re
+from base64 import b64encode
 from typing import Type
 
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, redirect, render_template, url_for
 from flask_minify import minify
-from webcolors import normalize_hex, name_to_hex, hex_to_rgb
 import png
+from webcolors import hex_to_rgb, name_to_hex, normalize_hex
 
 from app.config import Config
 
