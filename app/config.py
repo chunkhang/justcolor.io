@@ -12,8 +12,8 @@ class Config:
     APP_FAVICON_WIDTH = 16
     APP_FAVICON_HEIGHT = 16
     APP_IMAGE_COLOR = "#000000"
-    APP_IMAGE_WIDTH = 1200
-    APP_IMAGE_HEIGHT = 630
+    APP_IMAGE_WIDTH = 200
+    APP_IMAGE_HEIGHT = 200
 
 
 class DevelopmentConfig(Config):
