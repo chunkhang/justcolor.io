@@ -1,8 +1,5 @@
 {% extends 'layouts/base.html' %}
 
-{% set title = 'Home' %}
-{% set favicon = APP_FAVICON %}
-
 {% block content %}
   <main>
     <div class="container">
@@ -15,10 +12,10 @@
         <p class="uppercase">Hex</p>
         <ul>
           <li>
-            <a href="/000">{{ APP_BASE_URL }}/000</a>
+            <a href="/000">{{ APP_DOMAIN }}/000</a>
           </li>
           <li>
-            <a href="/34b044">{{ APP_BASE_URL }}/34b044</a>
+            <a href="/34b044">{{ APP_DOMAIN }}/34b044</a>
           </li>
         </ul>
       </section>
@@ -26,7 +23,7 @@
         <p class="uppercase">Name</p>
         <ul>
           <li>
-            <a href="/blue">{{ APP_BASE_URL }}/blue</a>
+            <a href="/blue">{{ APP_DOMAIN }}/blue</a>
           </li>
         </ul>
       </section>
